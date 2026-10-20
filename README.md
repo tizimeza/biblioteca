@@ -38,7 +38,7 @@ Desde `backend/`:
 npm run dev
 ```
 
-Para verificar la compilación TypeScript:
+Para verificar la sintaxis de los archivos JavaScript:
 
 ```powershell
 npm run build

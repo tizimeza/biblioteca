@@ -1,0 +1,22 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.app = void 0;
+const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
+const routes_1 = require("./constants/routes");
+const error_handler_1 = require("./middlewares/error-handler");
+const not_found_1 = require("./middlewares/not-found");
+const request_logger_1 = require("./middlewares/request-logger");
+const auth_1 = require("./middlewares/auth");
+const auth_routes_1 = require("./routes/auth.routes");
+exports.app = (0, express_1.default)();
+exports.app.use((0, cors_1.default)());
+exports.app.use(request_logger_1.requestLogger);
+exports.app.use(express_1.default.json());
+exports.app.use(`${routes_1.API_PREFIX}${routes_1.AUTH_ROUTES.BASE}`, auth_routes_1.authRoutes);
+exports.app.use(routes_1.API_PREFIX, auth_1.authMiddleware);
+exports.app.use(not_found_1.notFound);
+exports.app.use(error_handler_1.errorHandler);
