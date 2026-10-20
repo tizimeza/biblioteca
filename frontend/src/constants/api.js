@@ -3,4 +3,6 @@ export const API_BASE_URL =
 
 export const API_ENDPOINTS = {
   LOGIN: '/auth/login',
+  LIBROS: '/libros',
+  LIBRO_FILTER_OPTIONS: '/libros/opciones-filtros',
 };

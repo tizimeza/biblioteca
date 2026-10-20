@@ -12,11 +12,15 @@ const not_found_1 = require("./middlewares/not-found");
 const request_logger_1 = require("./middlewares/request-logger");
 const auth_1 = require("./middlewares/auth");
 const auth_routes_1 = require("./routes/auth.routes");
+const catalog_routes_1 = require("./routes/catalog.routes");
 exports.app = (0, express_1.default)();
 exports.app.use((0, cors_1.default)());
 exports.app.use(request_logger_1.requestLogger);
 exports.app.use(express_1.default.json());
 exports.app.use(`${routes_1.API_PREFIX}${routes_1.AUTH_ROUTES.BASE}`, auth_routes_1.authRoutes);
 exports.app.use(routes_1.API_PREFIX, auth_1.authMiddleware);
+for (const [route, router] of Object.entries(catalog_routes_1.catalogRoutes)) {
+    exports.app.use(`${routes_1.API_PREFIX}${route}`, router);
+}
 exports.app.use(not_found_1.notFound);
 exports.app.use(error_handler_1.errorHandler);

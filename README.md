@@ -1,9 +1,9 @@
 # Biblioteca
 
 Proyecto para el sistema de gestión de biblioteca. Incluye la configuración
-inicial del backend, entidades TypeORM y login de administrador con bcrypt y
-JWT. El frontend React tiene login y rutas privadas; los CRUD todavía están
-pendientes de implementación.
+del backend, entidades TypeORM, login de administrador con bcrypt y JWT, CRUD
+protegido para libros, autores, géneros, sagas y estantes, y un frontend React
+con login y catálogo filtrable.
 
 ## Requisitos
 
@@ -59,6 +59,14 @@ El endpoint público de inicio de sesión es `POST /api/auth/login` y recibe:
 Las demás rutas bajo `/api` requieren el encabezado
 `Authorization: Bearer <token>`.
 
+Los recursos protegidos tienen endpoints `GET /`, `GET /:id`, `POST /`,
+`PUT /:id` y `DELETE /:id` en `/api/libros`, `/api/autores`, `/api/generos`,
+`/api/sagas` y `/api/estantes`. El detalle de un libro incluye autor, género,
+saga y estante. La saga es opcional; autor, género y estante son obligatorios.
+El listado de libros acepta filtros combinables, por ejemplo:
+`GET /api/libros?generoId=1&autorId=2&anio=2020`. Las opciones de autores y
+géneros para los filtros están en `GET /api/libros/opciones-filtros`.
+
 ## Seguridad y estado del proyecto
 
 No subas `backend/.env`, logs, `node_modules` ni `dist`. El archivo
@@ -78,5 +86,5 @@ npm run dev
 Abre la URL local que muestra Vite (por defecto `http://localhost:5173`).
 `VITE_API_URL` puede cambiarse en `frontend/.env` si el backend usa otro host
 o puerto. La pantalla de login conecta con `POST /api/auth/login`, guarda el
-JWT en `localStorage` y protege las páginas privadas. Los CRUD del catálogo y
-el visor de logs se implementarán al completar sus rutas en el backend.
+JWT en `localStorage` y protege las páginas privadas. El CRUD visual del
+catálogo y el visor de logs del frontend se completarán en etapas siguientes.

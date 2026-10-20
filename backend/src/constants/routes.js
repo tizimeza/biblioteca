@@ -9,3 +9,10 @@ exports.AUTH_ROUTES = {
 exports.AUTHORIZATION = {
     BEARER_PREFIX: 'Bearer ',
 };
+exports.CATALOG_ROUTES = {
+    LIBROS: '/libros',
+    AUTORES: '/autores',
+    GENEROS: '/generos',
+    SAGAS: '/sagas',
+    ESTANTES: '/estantes',
+};

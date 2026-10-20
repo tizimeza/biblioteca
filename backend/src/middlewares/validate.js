@@ -5,13 +5,19 @@ const yup_1 = require("yup");
 const http_1 = require("../constants/http");
 const messages_1 = require("../constants/messages");
 const AppError_1 = require("../utils/AppError");
-function validate(schema) {
+function validate(schema, source = 'body') {
     return async (request, _response, next) => {
         try {
-            request.body = await schema.validate(request.body, {
+            const validated = await schema.validate(request[source], {
                 abortEarly: false,
                 stripUnknown: true,
             });
+            if (source === 'query') {
+                request.validatedQuery = validated;
+            }
+            else {
+                request.body = validated;
+            }
             next();
         }
         catch (error) {

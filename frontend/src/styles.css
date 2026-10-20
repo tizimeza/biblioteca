@@ -603,6 +603,237 @@ a {
   line-height: 1.7;
 }
 
+.catalog-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.catalog-heading h1 {
+  font-size: clamp(38px, 4.5vw, 54px);
+}
+
+.catalog-count {
+  flex: none;
+  padding: 8px 11px;
+  border-radius: 20px;
+  background: #e9eee7;
+  color: #587460;
+  font-size: 11px;
+}
+
+.catalog-filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.75fr auto;
+  align-items: end;
+  gap: 13px;
+  margin: 35px 0 23px;
+  padding: 19px;
+  border: 1px solid #e5e6de;
+  border-radius: 9px;
+  background: #fff;
+}
+
+.catalog-filters__field {
+  display: grid;
+  gap: 7px;
+}
+
+.catalog-filters__field label {
+  color: #56665c;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.catalog-filters__field input,
+.catalog-filters__field select {
+  width: 100%;
+  min-width: 0;
+  height: 39px;
+  padding: 0 10px;
+  border: 1px solid #e1e5df;
+  border-radius: 6px;
+  outline: none;
+  background: white;
+  color: #45564b;
+  font-size: 11px;
+}
+
+.catalog-filters__field input:focus,
+.catalog-filters__field select:focus {
+  border-color: #6e9b80;
+  box-shadow: 0 0 0 3px rgb(91 138 108 / 12%);
+}
+
+.catalog-filters__actions {
+  display: flex;
+  gap: 7px;
+}
+
+.catalog-filters__actions .button {
+  min-height: 39px;
+  padding: 0 12px;
+  white-space: nowrap;
+  font-size: 10px;
+}
+
+.catalog-feedback {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 150px;
+  color: #718077;
+  font-size: 13px;
+}
+
+.catalog-feedback--error {
+  flex-direction: column;
+  color: #9b443a;
+}
+
+.catalog-feedback p {
+  margin: 0;
+}
+
+.catalog-table-wrap {
+  overflow-x: auto;
+  border: 1px solid #e5e6de;
+  border-radius: 9px;
+  background: #fff;
+}
+
+.catalog-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.catalog-table th,
+.catalog-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eff0eb;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.catalog-table th {
+  background: #fafaf7;
+  color: #7a877e;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.catalog-table td {
+  color: #59685f;
+  font-size: 11px;
+}
+
+.catalog-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.catalog-table__title {
+  color: #34463c !important;
+  font-weight: 600;
+}
+
+.catalog-book-link {
+  color: inherit;
+  text-decoration-color: #b6c5b7;
+  text-underline-offset: 3px;
+}
+
+.catalog-book-link:hover {
+  color: var(--green);
+}
+
+.back-link {
+  display: inline-flex;
+  margin-bottom: 32px;
+  color: #587460;
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.book-detail h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, serif;
+  font-size: clamp(38px, 4.5vw, 54px);
+  font-weight: 500;
+}
+
+.book-detail__year {
+  margin: 11px 0 30px;
+  color: #849087;
+  font-size: 13px;
+}
+
+.book-detail__list {
+  display: grid;
+  max-width: 680px;
+  margin: 0;
+  border: 1px solid #e5e6de;
+  border-radius: 9px;
+  background: white;
+}
+
+.book-detail__list > div {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 20px;
+  padding: 17px 20px;
+  border-bottom: 1px solid #eff0eb;
+}
+
+.book-detail__list > div:last-child {
+  border-bottom: 0;
+}
+
+.book-detail__list dt {
+  color: #7a877e;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.book-detail__list dd {
+  display: grid;
+  gap: 5px;
+  margin: 0;
+  color: #34463c;
+  font-size: 12px;
+}
+
+.book-detail__list dd span {
+  color: #8a958d;
+  font-size: 10px;
+}
+
+.shelf-code {
+  display: inline-flex;
+  padding: 5px 7px;
+  border-radius: 4px;
+  background: #edf4ee;
+  color: #52765d;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.shelf-location {
+  display: block;
+  margin-top: 5px;
+  color: #8a958d;
+  font-size: 9px;
+}
+
 .app-footer {
   padding: 23px 24px;
   border-top: 1px solid #e8e7df;
@@ -708,6 +939,19 @@ a {
     grid-template-columns: 38px 1fr;
     gap: 12px;
     padding: 15px;
+  }
+
+  .catalog-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .catalog-filters {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .catalog-filters__actions {
+    grid-column: 1 / -1;
   }
 
   .status-pill {
