@@ -1,9 +1,9 @@
 # Biblioteca
 
-Proyecto para el sistema de gestión de biblioteca. Actualmente incluye la
-configuración inicial del backend, las entidades TypeORM y el inicio de sesión
-de administrador con bcrypt y JWT. Los CRUD y la aplicación React todavía
-están pendientes de implementación.
+Proyecto para el sistema de gestión de biblioteca. Incluye la configuración
+inicial del backend, entidades TypeORM y login de administrador con bcrypt y
+JWT. El frontend React tiene login y rutas privadas; los CRUD todavía están
+pendientes de implementación.
 
 ## Requisitos
 
@@ -62,5 +62,21 @@ Las demás rutas bajo `/api` requieren el encabezado
 ## Seguridad y estado del proyecto
 
 No subas `backend/.env`, logs, `node_modules` ni `dist`. El archivo
-`backend/.env.example` contiene solamente valores de ejemplo. La API CRUD y el
-frontend se completarán en las siguientes etapas del proyecto.
+`backend/.env.example` contiene solamente valores de ejemplo.
+
+## Ejecutar el frontend
+
+En otra terminal, desde la raíz del repositorio:
+
+```powershell
+cd frontend
+npm install
+Copy-Item .env.example .env
+npm run dev
+```
+
+Abre la URL local que muestra Vite (por defecto `http://localhost:5173`).
+`VITE_API_URL` puede cambiarse en `frontend/.env` si el backend usa otro host
+o puerto. La pantalla de login conecta con `POST /api/auth/login`, guarda el
+JWT en `localStorage` y protege las páginas privadas. Los CRUD del catálogo y
+el visor de logs se implementarán al completar sus rutas en el backend.
